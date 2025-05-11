@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02dacb730b710a4f9d7ca50a8b1f010, type: 3}
+  m_Name: Config Props Library
+  m_EditorClassIdentifier: 
+  Figures:
+  - Id: 0
+    Shape: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+    Figure: {fileID: 7844915805100934216, guid: ee40d3469c126914a89d7e99b309872f, type: 3}
+  - Id: 1
+    Shape: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+    Figure: {fileID: 2830165291833682559, guid: b8ac7a532c1b05343895633e6164fc92, type: 3}
+  - Id: 2
+    Shape: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
+    Figure: {fileID: 7844915805100934216, guid: 96d2b92f76e04ec4397beb167eeb557f, type: 3}
+  - Id: 3
+    Shape: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+    Figure: {fileID: 7844915805100934216, guid: ff40dae0ca1dd2b4cb82564c8f2cbe5e, type: 3}
+  Colors:
+  - Id: 0
+    BackGroundColor: {r: 1, g: 0, b: 0, a: 1}
+  - Id: 1
+    BackGroundColor: {r: 0, g: 0, b: 1, a: 1}
+  - Id: 2
+    BackGroundColor: {r: 0, g: 1, b: 0, a: 1}
+  - Id: 3
+    BackGroundColor: {r: 0, g: 1, b: 1, a: 1}
+  - Id: 4
+    BackGroundColor: {r: 1, g: 0, b: 1, a: 1}
+  - Id: 5
+    BackGroundColor: {r: 1, g: 1, b: 0, a: 1}
+  Icons:
+  - Id: 0
+    Icon: {fileID: -224713120, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 1
+    Icon: {fileID: 297454240, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 2
+    Icon: {fileID: -2036897866, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 3
+    Icon: {fileID: -2036897866, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 4
+    Icon: {fileID: -355607984, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 5
+    Icon: {fileID: 169043429, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 6
+    Icon: {fileID: -1766363523, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 7
+    Icon: {fileID: 1094542290, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 8
+    Icon: {fileID: -1044363121, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 9
+    Icon: {fileID: -1361825928, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 10
+    Icon: {fileID: 629497787, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 11
+    Icon: {fileID: 341401526, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
+  - Id: 12
+    Icon: {fileID: -1996594890, guid: 183f3ba47d746ea4190c5bb109108e88, type: 3}
