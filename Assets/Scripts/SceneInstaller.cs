@@ -10,6 +10,6 @@ public class SceneInstaller : MonoInstaller
         base.Start();
         var gps = Container.Resolve<GamePlayerService>();
         gps.StartGame();
-        gps.Enter<StateStartlevel>();
+        gps.Enter<StateMainGameplay>();
     }
 }

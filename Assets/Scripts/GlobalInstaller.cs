@@ -7,7 +7,8 @@ using Zenject;
 
 public class GlobalInstaller : MonoInstaller
 {
-    [SerializeField] private ConfigPropsLibrary _dialogsConfig;
+    [SerializeField] private ConfigPropsLibrary _hardConfig;
+    [SerializeField] private ConfigPropsLibrary _easyConfig;//variant for tests
     [SerializeField] private UIPrefabsConfig _uIPrefabsConfig;
 
     public override void InstallBindings()
@@ -20,21 +21,22 @@ public class GlobalInstaller : MonoInstaller
 
     private void InstallConfigs()
     {
-        Container.Bind<ConfigPropsLibrary>().FromScriptableObject(_dialogsConfig).AsSingle();
+        Container.Bind<ConfigPropsLibrary>().FromScriptableObject(_hardConfig).AsSingle();
         Container.Bind<UIPrefabsConfig>().FromScriptableObject(_uIPrefabsConfig).AsSingle();
     }
 
     private void InstallServices()
     {
-        Container.Bind<DataLevel>().FromInstance(new DataLevel(_dialogsConfig)).AsSingle();
-        Container.Bind<PropsServices>().FromInstance(new PropsServices(_dialogsConfig)).AsSingle();
+        Container.Bind<DataLevel>().FromInstance(new DataLevel(_hardConfig)).AsSingle();
+        Container.Bind<PropsServices>().FromInstance(new PropsServices(_hardConfig)).AsSingle();
     }
 
     private void InstallStateMachine()
     {
         var gameplayStateMachine = new GamePlayerService(
             _uIPrefabsConfig.GameArena,
-            Container.Resolve<DataLevel>());
+            Container.Resolve<DataLevel>(),
+            Container.Resolve<SignalBus>());
 
         gameplayStateMachine.Register<StateWin>(
             new StateWin(
@@ -46,53 +48,21 @@ public class GlobalInstaller : MonoInstaller
                 Container.Resolve<SignalBus>(),
                 _uIPrefabsConfig.FailWindow,
                 Container));
-        gameplayStateMachine.Register<StateStartlevel>(
-            new StateStartlevel(
+        gameplayStateMachine.Register<StateMainGameplay>(
+            new StateMainGameplay(
                 Container.Resolve<SignalBus>(),
                 _uIPrefabsConfig.MainGamePlayWindow,
                 Container));
-        gameplayStateMachine.Register<StateMainGameplay>(new StateMainGameplay());
 
         Container.Bind<GamePlayerService>().FromInstance(gameplayStateMachine).AsSingle();
-    }/**/
-
-/*    private void InstFSMByDS()
-    {
-        Container.Bind<StateWin>()
-            .FromNew()
-            .AsTransient()
-            .WithArguments(_uIPrefabsConfig.WinWindow);
-
-        Container.Bind<StateFale>()
-                 .FromNew()
-                 .AsTransient()
-                 .WithArguments(_uIPrefabsConfig.FailWindow);
-
-        Container.Bind<StateMainGameplay>()
-                 .FromNew()
-                 .AsTransient();
-
-        Container.Bind<StateStartlevel>()
-                 .FromNew()
-                 .AsTransient();
-
-        Container.Bind<GamePlayerService>()
-                 .FromNew()
-                 .AsSingle()
-                 .OnInstantiated<GamePlayerService>((ctx, stateMachine) =>
-                 {
-                     stateMachine.Register<StateWin>(ctx.Container.Resolve<StateWin>());
-                     stateMachine.Register<StateFale>(ctx.Container.Resolve<StateFale>());
-                     stateMachine.Register<StateMainGameplay>(ctx.Container.Resolve<StateMainGameplay>());
-                     stateMachine.Register<StateStartlevel>(ctx.Container.Resolve<StateStartlevel>());
-                 });
-    }/**/
+    }
 
     private void InstallSignals()
     {
         SignalBusInstaller.Install(Container);
-        Container.DeclareSignal<NextLevel>();
-        Container.DeclareSignal<StartLevel>();
-        Container.DeclareSignal<ClickOnFigure>();
+        Container.DeclareSignal<NextLevelSignal>();
+        Container.DeclareSignal<AddScoreSignal>();
+        Container.DeclareSignal<RestartSignal>();
+        Container.DeclareSignal<ClickOnFigureSignal>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Signals;
+﻿using Models;
+using Signals;
 using UI;
 using UnityEngine;
 using Zenject;
@@ -29,13 +30,15 @@ namespace FSM
         {
             base.InitWindow();
 
+            var data = _di.Resolve<DataLevel>();
+            GetWindow.TextScore.text = $"{data.Score}";
             GetWindow.ButtonNextLevel.onClick.AddListener(LoadNextLevel);
         }
 
         private void LoadNextLevel()
         {
             Debug.Log($"LoadNextLevel");
-            GetSignalBus.Fire(new NextLevel());
+            GetSignalBus.Fire(new NextLevelSignal());
         }
     }
 }

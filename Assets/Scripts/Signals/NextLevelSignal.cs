@@ -1,6 +1,6 @@
 ﻿namespace Signals
 {
-    public struct NextLevel
+    public struct NextLevelSignal
     {
 
     }

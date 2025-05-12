@@ -1,6 +1,6 @@
 ﻿namespace Signals
 {
-    public struct StartLevel
+    public struct AddScoreSignal
     {
 
     }

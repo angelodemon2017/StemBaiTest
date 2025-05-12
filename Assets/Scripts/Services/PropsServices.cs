@@ -8,6 +8,8 @@ namespace Services
     {
         private ConfigPropsLibrary _propsLibrary;
 
+        public float GetScaleFactor => _propsLibrary.FigureScale;
+
         [Inject]
         public PropsServices(ConfigPropsLibrary propsLibrary)
         {

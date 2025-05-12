@@ -7,5 +7,4 @@ public class GameArena : MonoBehaviour
     [SerializeField] private List<Transform> _slots;
 
     public Transform GetSpawnPoint => _spawnPoint;
-    public List<Transform> Slots => _slots;
 }

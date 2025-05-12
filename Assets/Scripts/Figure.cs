@@ -29,6 +29,7 @@ public class Figure : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _signalBus.Fire(new ClickOnFigure(_dataFigure));
+        _signalBus.Fire(new ClickOnFigureSignal(_dataFigure));
+        Destroy(gameObject);
     }
 }

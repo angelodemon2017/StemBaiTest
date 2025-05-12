@@ -11,7 +11,7 @@ namespace UI
 
         public virtual void Hide()
         {
-
+            Destroy(gameObject);
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Models
     {
         private ConfigPropsLibrary _configPropsLibrary;
 
-        public int CurrentLevel;
         public int Score;
         public List<DataFigure> Figures = new List<DataFigure>();
         public List<DataFigure> SelectedFigures = new();
@@ -21,9 +20,10 @@ namespace Models
         {
             for (int i = 0; i < _configPropsLibrary.Figures.Count; i++)
                 for (int j = 0; j < _configPropsLibrary.Colors.Count; j++)
-                {
-                    Figures.Add(new DataFigure(i, j, 0));
-                }
+                    for (int k = 0; k < _configPropsLibrary.Icons.Count; k++)
+                    {
+                        Figures.Add(new DataFigure(i, j, k));
+                    }
             Figures.Shuffle();
         }
     }

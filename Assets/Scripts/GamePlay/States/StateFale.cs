@@ -1,4 +1,5 @@
-﻿using UI;
+﻿using Signals;
+using UI;
 using Zenject;
 
 namespace FSM
@@ -14,13 +15,25 @@ namespace FSM
         public override void Enter()
         {
             base.Enter();
-
         }
 
         public override void Exit()
         {
             base.Exit();
 
+            GetWindow.ButtonRestart.onClick.RemoveListener(RestartLevel);
+        }
+
+        protected override void InitWindow()
+        {
+            base.InitWindow();
+
+            GetWindow.ButtonRestart.onClick.AddListener(RestartLevel);
+        }
+
+        private void RestartLevel()
+        {
+            GetSignalBus.Fire(new RestartSignal());
         }
     }
 }

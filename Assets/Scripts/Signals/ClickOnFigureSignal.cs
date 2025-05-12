@@ -2,11 +2,11 @@
 
 namespace Signals
 {
-    public struct ClickOnFigure
+    public struct ClickOnFigureSignal
     {
         public DataFigure dataFigure;
 
-        public ClickOnFigure(DataFigure data)
+        public ClickOnFigureSignal(DataFigure data)
         {
             dataFigure = data;
         }

@@ -265,6 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonMix: {fileID: 6988893081524291543}
   SlotsParent: {fileID: 266331675691469062}
+  SlotPrefab: {fileID: 7144206332804565608, guid: c976c4f9d2485684ab25077f5d7ca0a4, type: 3}
+  Slots: []
 --- !u!1 &8462207881552088898
 GameObject:
   m_ObjectHideFlags: 0

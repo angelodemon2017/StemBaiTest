@@ -6,6 +6,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(menuName = "Scriptable Objects/Config", order = 1)]
 public class ConfigPropsLibrary : ScriptableObject
 {
+    public float FigureScale;
     public List<PropBaseFigure> Figures;
     public List<PropColor> Colors;
     public List<PropIcon> Icons;
@@ -20,10 +21,5 @@ public class ConfigPropsLibrary : ScriptableObject
         Figures.SetIndexes();
         Colors.SetIndexes();
         Icons.SetIndexes();
-    }
-
-    public Figure GetFigureByIdShape(int id)
-    {
-        return Figures[id].Figure;
     }
 }
