@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e24f86d30ebbbe4584a35e76ae6143a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsEasy: 1
   _hardConfig: {fileID: 11400000, guid: 237d193805aabdc4c8e901b85846ceda, type: 2}
   _easyConfig: {fileID: 11400000, guid: c5b57612d02b8814a928adc5226b0900, type: 2}
   _uIPrefabsConfig: {fileID: 11400000, guid: 64d3212686313754695853b16fd96660, type: 2}

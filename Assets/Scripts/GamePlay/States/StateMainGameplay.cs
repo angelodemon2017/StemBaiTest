@@ -134,7 +134,8 @@ namespace FSM
 
         private void CheckGameState()
         {
-            if (_dataLevel.SelectedFigures.Count >= SLOTS)
+            if (_dataLevel.SelectedFigures.Count >= SLOTS ||
+                (_dataLevel.Figures.Count == 0 && _dataLevel.SelectedFigures.Count > 0))
             {
                 _gamePlayerService.Enter<StateFale>();
             }

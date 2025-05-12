@@ -7,9 +7,16 @@ using Zenject;
 
 public class GlobalInstaller : MonoInstaller
 {
+    [SerializeField] private bool IsEasy;
+
     [SerializeField] private ConfigPropsLibrary _hardConfig;
-    [SerializeField] private ConfigPropsLibrary _easyConfig;//variant for tests
+    [SerializeField] private ConfigPropsLibrary _easyConfig;
     [SerializeField] private UIPrefabsConfig _uIPrefabsConfig;
+
+    private ConfigPropsLibrary GetConfig =>
+        IsEasy ?
+        _easyConfig :
+        _hardConfig;
 
     public override void InstallBindings()
     {
@@ -21,14 +28,17 @@ public class GlobalInstaller : MonoInstaller
 
     private void InstallConfigs()
     {
-        Container.Bind<ConfigPropsLibrary>().FromScriptableObject(_hardConfig).AsSingle();
-        Container.Bind<UIPrefabsConfig>().FromScriptableObject(_uIPrefabsConfig).AsSingle();
+        Container.Bind<ConfigPropsLibrary>()
+            .FromScriptableObject(GetConfig).AsSingle();
+
+        Container.Bind<UIPrefabsConfig>()
+            .FromScriptableObject(_uIPrefabsConfig).AsSingle();
     }
 
     private void InstallServices()
     {
-        Container.Bind<DataLevel>().FromInstance(new DataLevel(_hardConfig)).AsSingle();
-        Container.Bind<PropsServices>().FromInstance(new PropsServices(_hardConfig)).AsSingle();
+        Container.Bind<DataLevel>().FromInstance(new DataLevel(GetConfig)).AsSingle();
+        Container.Bind<PropsServices>().FromInstance(new PropsServices(GetConfig)).AsSingle();
     }
 
     private void InstallStateMachine()
